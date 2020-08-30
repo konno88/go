@@ -13,13 +13,22 @@
     = @article.title
     %p.show_content 内容
     = @article.content
+    - if @article.eyecatch.attached?
+      .show_image
+        = image_tag @article.eyecatch
     .show_detail
       .show_detail_content
         .show_detail_content_name
           = link_to '#' do
             = image_tag 'default-avatar.png'
         .show_detail_content_heart
-          = image_tag 'heart.svg'
+          - if user_signed_in?
+            - if current_user.has_liked?(@article)
+              = link_to article_like_path(@article), data: {method: 'delete'} do
+                = image_tag 'heart-active.svg'
+            - else 
+              = link_to article_like_path(@article), data: {method: 'post'} do
+                = image_tag 'heart.svg'
     .show-comment-content
       .show-comment-wrap
         .show_comment

@@ -5,6 +5,10 @@
   = form_with(model: article, local: true) do |f|
     .form
       %div
+        = f.label :eyecatch, 'アイキャッチ', class: 'form_eyecatch'
+      %div
+        = f.file_field :eyecatch, class: 'form_eyecatch_field'
+      %div
         = f.label :title, 'タイトル', class: 'form_title'
       %div
         = f.text_field :title, class: 'form_title_text'
