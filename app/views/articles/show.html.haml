@@ -23,7 +23,7 @@
     .show-comment-content
       .show-comment-wrap
         .show_comment
-          = link_to '#' do
+          = link_to new_article_comment_path(@article) do
             %p.show_comment_view
               コメントする
               %span.fa.fa-comment
@@ -38,5 +38,6 @@
       .btn_close-comment
         %i.far.fa-times-circle
       %ul.show_comments_index_list
-        %li.show_comments_index_list_item
+        - @comments.each do |comment|
+          %li.show_comments_index_list_item= comment.content
 = javascript_pack_tag 'comment-open-close'

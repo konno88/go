@@ -5,6 +5,8 @@ class Article < ApplicationRecord
     validates :title, format: {with: /\A(?!\@)/}
     validates :content, presence: true
 
+    has_many :comments, dependent: :destroy
+
     belongs_to :user
 
     def author_name
