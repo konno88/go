@@ -1,0 +1,42 @@
+.container
+  .show
+    .show_date
+      %p= @article.display_created_at
+    - if user_signed_in? && current_user.has_written?(@article)
+      .article_detail_actions
+        .dropdown
+          = image_tag 'actions.svg', class: 'dropbtn'
+          .dropdown-content.mini
+            = link_to '編集する', edit_article_path(@article)
+            = link_to '削除する', article_path(@article), data: {method: 'delete', confirm: '本当に削除してもよろしいですか？'}
+    %p.show_title タイトル
+    = @article.title
+    %p.show_content 内容
+    = @article.content
+    .show_detail
+      .show_detail_content
+        .show_detail_content_name
+          = link_to '#' do
+            = image_tag 'default-avatar.png'
+        .show_detail_content_heart
+          = image_tag 'heart.svg'
+    .show-comment-content
+      .show-comment-wrap
+        .show_comment
+          = link_to '#' do
+            %p.show_comment_view
+              コメントする
+              %span.fa.fa-comment
+        .show_comments
+          .dropdown
+            %p.show_comments_view.dropbtn-comments
+              コメント一覧  
+              %span.fa.fa-list-ol
+            .dropdown-content-comments.mini
+              %p.show_comments_open 開く
+    .show_comments_index
+      .btn_close-comment
+        %i.far.fa-times-circle
+      %ul.show_comments_index_list
+        %li.show_comments_index_list_item
+= javascript_pack_tag 'comment-open-close'
