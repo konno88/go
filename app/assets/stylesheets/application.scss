@@ -14,9 +14,13 @@
  *= require_self
  */
 
- @import 'variables';
+ @import './variables';
  @import 'header';
  @import 'nav';
+ @import 'card';
+ @import 'tabs';
+ @import 'article';
+ @import 'form';
 
  html {
 
