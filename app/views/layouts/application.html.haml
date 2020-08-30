@@ -24,10 +24,13 @@
               %label#nav-close.nav-unshown{:for => "nav-input"}
               #nav-content
                 #nav-content_head
-                  = image_tag 'default-avatar.png'
+                  - if user_signed_in? && current_user&.profile&.avatar&.attached?
+                    = image_tag current_user.profile.avatar
+                  - else
+                    = image_tag 'default-avatar.png'
                 %ul#nav-content_list
                   %li#nav-content_list_item= link_to 'HOMEに戻る', root_path
-                  %li#nav-content_list_item= link_to 'プロフィール', '#'
+                  %li#nav-content_list_item= link_to 'プロフィール', profile_path
                   %li#nav-content_list_item= link_to '投稿する', new_article_path
                   %li#nav-content_list_item= link_to '投稿内容一覧', articles_path
                   %li#nav-content_list_item= link_to 'いいね一覧', '#'
@@ -37,7 +40,7 @@
         %div
           %ul.header_list
             %li.header_list_item= link_to 'HOMEに戻る', root_path
-            %li.header_list_item= link_to 'プロフィール', '#'
+            %li.header_list_item= link_to 'プロフィール', profile_path
             %li.header_list_item= link_to '投稿する', new_article_path
             %li.header_list_item= link_to '投稿内容一覧', articles_path
             %li.header_list_item= link_to 'いいね一覧', '#'
