@@ -1,5 +1,5 @@
 .container
-  .show
+  .show#show-article{data: {article_id: @article.id}}
     .show_date
       %p= @article.display_created_at
     - if user_signed_in? && current_user.has_written?(@article)
@@ -21,14 +21,11 @@
         .show_detail_content_name
           = link_to account_path(@article.user) do
             = image_tag @article.user.avatar_image
-        .show_detail_content_heart
-          - if user_signed_in?
-            - if current_user.has_liked?(@article)
-              = link_to article_like_path(@article), data: {method: 'delete'} do
-                = image_tag 'heart-active.svg'
-            - else 
-              = link_to article_like_path(@article), data: {method: 'post'} do
-                = image_tag 'heart.svg'
+        - if user_signed_in?
+          .show_detail_content_heart.hidden.active-heart
+            = image_tag 'heart-active.svg' 
+          .show_detail_content_heart.hidden.inactive-heart
+            = image_tag 'heart.svg'
     .show-comment-content
       .show-comment-wrap
         .show_comment
@@ -49,4 +46,5 @@
       %ul.show_comments_index_list
         - @comments.each do |comment|
           %li.show_comments_index_list_item= comment.content
+= javascript_pack_tag 'article'
 = javascript_pack_tag 'comment-open-close'
