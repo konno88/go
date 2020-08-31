@@ -21,4 +21,8 @@ Rails.application.routes.draw do
   resource :followings, only: [:show]
 
   resource :followers, only: [:show]
+
+  resources :user_followings, only: [:show, :index]
+
+  resources :user_followers, only: [:show, :index]
 end
