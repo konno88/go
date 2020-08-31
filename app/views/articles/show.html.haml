@@ -19,8 +19,8 @@
     .show_detail
       .show_detail_content
         .show_detail_content_name
-          = link_to '#' do
-            = image_tag 'default-avatar.png'
+          = link_to account_path(@article.user) do
+            = image_tag @article.user.avatar_image
         .show_detail_content_heart
           - if user_signed_in?
             - if current_user.has_liked?(@article)
