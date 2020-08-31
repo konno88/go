@@ -7,7 +7,7 @@
         =link_to new_article_path do
           %span.fa.fa-pen.profilePage_user_actionButton_new
         %p.profilePage_user_actionButton_edit= link_to '変更', edit_profile_path
-    -#   - else
+      - else
         - if current_user&.has_followed?(user)
           %p.profilePage_user_actionButton_unfollow= link_to 'フォロー中', account_unfollows_path(user), data: {method: 'post'}
         - else
