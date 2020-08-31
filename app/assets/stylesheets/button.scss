@@ -62,99 +62,66 @@
     opacity: 0.9;
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (max-width: 1024px) {
     .btn_login {
         position: fixed;
-        left: 25%;
+        left: 50%;
+        margin-left: -80px;
         bottom: 0;
     }
 
     .btn_logout {
         position: fixed;
-        left: 25%;
+        left: 50%;
+        margin-left: -80px;
         bottom: 0;
         line-height: 35px;
     }
 }
 
-@media screen and (min-width: 375px) {
+@media screen and (min-width: 1025px) {
     .btn_login {
+        height: 50px;
+        width: 200px;
         position: fixed;
-        left: 107.5px;
+        left: 50%;
+        margin-left: -100px;
         bottom: 0;
+        font-size: 20px;
     }
 
     .btn_logout {
+        height: 50px;
+        width: 200px;
         position: fixed;
-        left: 107.5px;
+        left: 50%;
+        margin-left: -100px;
         bottom: 0;
-        line-height: 35px;
-    }
-}
-
-@media screen and (min-width: 425px) {
-    .btn_login {
-        position: fixed;
-        left: 132.5px;
-        bottom: 0;
-    }
-
-    .btn_logout {
-        position: fixed;
-        left: 132.5px;
-        bottom: 0;
-        line-height: 35px;
-    }
-}
-
-@media screen and (min-width: 768px) {
-    .btn_login {
-        position: fixed;
-        left: 304px;
-        bottom: 0;
-    }
-
-    .btn_logout {
-        position: fixed;
-        left: 304px;
-        bottom: 0;
-        line-height: 35px;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    .btn_login {
-        position: fixed;
-        left: 432px;
-        bottom: 0;
-    }
-
-    .btn_logout {
-        position: fixed;
-        left: 432px;
-        bottom: 0;
-        line-height: 35px;
+        font-size: 20px;
+        line-height: 50px;
     }
 }
 
 @media screen and (min-width: 1440px) {
     .btn_login {
-        height: 50px;
-        width: 200px;
+        height: 75px;
+        width: 300px;
         position: fixed;
-        left: 620px;
+        left: 50%;
+        margin-left: -150px;
         bottom: 0;
-        font-size: 20px;
+        font-size: 30px;
     }
 
     .btn_logout {
-        height: 50px;
-        width: 200px;
+        height: 75px;
+        width: 300px;
         position: fixed;
-        left: 620px;
+        left: 50%;
+        margin-left: -150px;
         bottom: 0;
-        font-size: 20px;
-        line-height: 50px;
+        font-size: 30px;
+        line-height: 75px;
     }
 }
 
@@ -163,7 +130,8 @@
         height: 100px;
         width: 400px;
         position: fixed;
-        left: 1080px;
+        left: 50%;
+        margin-left: -200px;
         bottom: 0;
         font-size: 40px;
     }
@@ -172,7 +140,8 @@
         height: 100px;
         width: 400px;
         position: fixed;
-        left: 1080px;
+        left: 50%;
+        margin-left: -200px;
         bottom: 0;
         font-size: 40px;
         line-height: 100px;
