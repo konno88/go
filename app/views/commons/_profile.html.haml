@@ -4,9 +4,9 @@
       プロフィール
     .profilePage_user_actionButton
       - if current_user == user
+        %p.profilePage_user_actionButton_edit= link_to '変更', edit_profile_path
         =link_to new_article_path do
           %span.fa.fa-pen.profilePage_user_actionButton_new
-        %p.profilePage_user_actionButton_edit= link_to '変更', edit_profile_path
       - else
         - if current_user&.has_followed?(user)
           %p.profilePage_user_actionButton_unfollow= link_to 'フォロー中', account_unfollows_path(user), data: {method: 'post'}
@@ -16,10 +16,11 @@
         - if @isRoom == true
           %p.profilePage_user_actionButton_chat= link_to 'チャットへ', room_path(@roomId)
         - else
-          = form_with model: @room, url: rooms_path, local: true do |f|
-            = fields_for @entry do |e|
-              = e.hidden_field :user_id, value: @user.id
-            = f.submit 'チャットを始める', class: 'profilePage_user_actionButton_chat'
+          %p.profilePage_user_actionButton_form
+            = form_with model: @room, url: rooms_path, local: true do |f|
+              = fields_for @entry do |e|
+                = e.hidden_field :user_id, value: @user.id
+              = f.submit 'チャットを始める', class: 'profilePage_user_actionButton_chat'
       
 
     .profilePage_user_image
