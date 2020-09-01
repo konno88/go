@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :followings, through: :following_relationships, source: :following
   has_many :follower_relationships, foreign_key: 'following_id', class_name: 'Relationship', dependent: :destroy
   has_many :followers, through: :follower_relationships, source: :follower
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
 
   delegate :birthday, :age, :gender, :location, :musical_instrument, to: :profile, allow_nil: true
 
@@ -49,7 +51,7 @@ class User < ApplicationRecord
   def unfollow!(user)
     user_id = get_user_id(user)
 
-    relation = following_relationships.find_by!(following_id: user.id)
+    relation = following_relationships.find_by!(following_id: user_id)
     relation.destroy!
   end
 
@@ -60,9 +62,9 @@ class User < ApplicationRecord
   private
   def get_user_id(user)
     if user.is_a?(User)
-      user_id = user.id
+      user.id
     else
-      user_id = user
+      user
     end
   end
 
