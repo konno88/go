@@ -31,4 +31,10 @@ Rails.application.routes.draw do
   resource :timeline, only: [:show]
 
   resources :searches, only: [:index]
+
+  resources :users
+
+  resources :messages, only: [:create]
+
+  resources :rooms, only: [:create, :show]
 end

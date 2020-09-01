@@ -1,7 +1,6 @@
-class AccountsController < ApplicationController
+class UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
-
         #自分が参加しているメッセージルーム情報を取得する
         @currentUserEntry = Entry.where(user_id: current_user.id)
         #洗濯したユーザのメッセージルーム情報を取得する
@@ -22,10 +21,6 @@ class AccountsController < ApplicationController
               @room = Room.new
               @entry = Entry.new
           end
-        end
-
-        if @user == current_user
-            redirect_to profile_path
         end
     end
 end
