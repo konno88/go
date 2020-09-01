@@ -23,9 +23,21 @@
         right: 0;
         margin-right: 10px;
         display: flex;
+        flex-direction: column;
+
+        &_chat {
+            display: block;
+            text-align: center;
+            border: 1px solid #fff;
+            background-color: #ff6666;
+            padding: 7px 9px;
+            border-radius: 999px;
+            font-weight: bold;
+        }
 
 
         &_unfollow {
+            margin-bottom: 10px;
         
             a {
                 color: white;
@@ -84,8 +96,8 @@
 
             span {
                 display: block;
-                line-height: 56px;
                 margin-right: 10px;
+                text-align: right;
             }
         }
     }
