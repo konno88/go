@@ -24,6 +24,7 @@ gem 'faker'
 gem 'hamlit'
 gem 'devise'
 gem 'aws-sdk-s3', require: false
+gem 'sendgrid-ruby'
 #Google
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
