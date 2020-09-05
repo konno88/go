@@ -35,6 +35,25 @@
             font-weight: bold;
         }
 
+        &_form {
+
+            &_chat {
+                color: white;
+                display: block;
+                text-align: center;
+                border: 1px solid #fff;
+                background-color: #ff6666;
+                padding: 7px 9px;
+                border-radius: 999px;
+                font-weight: bold;
+            }
+
+            &_chat:hover {
+                cursor: pointer;
+                opacity: 0.8;
+            }
+        }
+
 
         &_unfollow {
             margin-bottom: 10px;
