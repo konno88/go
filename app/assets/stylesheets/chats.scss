@@ -7,6 +7,7 @@
             background-color: rgba(#fff, 0.6);
             height: auto;
             border-bottom: 1px solid #c0c0c0;
+            position: relative;
 
             &_image {
                 img {
@@ -38,6 +39,10 @@
             color: white;
             padding: 4px 9px;
         }
+    }
+
+    a {
+        color: black;
     }
 }
 

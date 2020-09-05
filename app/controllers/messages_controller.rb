@@ -9,4 +9,11 @@ class MessagesController < ApplicationController
           redirect_back(fallback_location: root_path)
         end
     end
+
+    def destroy
+      @room = Room.find(params[:id])
+      message = current_user.messages.find(params[:id])
+      message.destroy!
+      redirect_to room_path(@room), notice: '削除しました'
+    end
 end
