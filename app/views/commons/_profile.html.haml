@@ -20,7 +20,7 @@
             = form_with model: @room, url: rooms_path, local: true do |f|
               = fields_for @entry do |e|
                 = e.hidden_field :user_id, value: @user.id
-              = f.submit 'チャットを始める', class: 'profilePage_user_actionButton_chat'
+              = f.submit 'チャットを始める', class: 'profilePage_user_actionButton_form_chat'
       
 
     .profilePage_user_image
