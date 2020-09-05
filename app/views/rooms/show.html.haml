@@ -3,11 +3,19 @@
     .chats_index
       - if @messages.present?
         - @messages.each do |m|
-          .chats_index_item
-            .chats_index_item_image
-              = image_tag m.user.avatar_image
-            .chats_index_item_content
-              = m.content
+          - if current_user.has_comment?(m)
+            = link_to message_path(m), data: {method: 'delete', confirm: "この内容を削除しますか？「#{m.content}」"} do
+              .chats_index_item
+                .chats_index_item_image
+                  = image_tag m.user.avatar_image
+                .chats_index_item_content
+                  = m.content
+          - else
+            .chats_index_item
+              .chats_index_item_image
+                = image_tag m.user.avatar_image
+              .chats_index_item_content
+                = m.content
       - else
         %p メッセージはまだありません
     .chats_form
