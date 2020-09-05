@@ -33,9 +33,7 @@ Rails.application.routes.draw do
 
   resources :searches, only: [:index]
 
-  resources :users
-
+  resources :rooms, only: [:create, :show] 
+    
   resources :messages, only: [:create, :destroy]
-
-  resources :rooms, only: [:create, :show]
 end
