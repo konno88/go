@@ -4,7 +4,7 @@
       - if @messages.present?
         - @messages.each do |m|
           - if current_user.has_comment?(m)
-            = link_to message_path(m), data: {method: 'delete', confirm: "この内容を削除しますか？「#{m.content}」"} do
+            = link_to message_path(m.id), data: {method: 'delete', confirm: "この内容を削除しますか？「#{m.content}」"} do
               .chats_index_item
                 .chats_index_item_image
                   = image_tag m.user.avatar_image
