@@ -1,5 +1,8 @@
 # README
 
+![160kb]
+(https://img.shields.io/github/languages/code-size/konno88/go.svg)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
